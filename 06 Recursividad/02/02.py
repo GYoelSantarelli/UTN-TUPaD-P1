@@ -1,18 +1,21 @@
-# Función recursiva para calcular la potencia
-def potencia(base, exponente):
-    if exponente == 0:
+# Función recursiva para calcular el número de Fibonacci
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
         return 1
     else:
-        return base * potencia(base, exponente - 1)
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
-# Programa principal
-if __name__ == "__main__":
-    
-    base = float(input("Ingresa la base (número real): "))
-    exponente = int(input("Ingresa el exponente (entero no negativo): "))
+# Función para mostrar la serie completa hasta una posición dada
+def mostrar_serie_fibonacci(hasta):
+    print("Serie de Fibonacci hasta la posición", hasta, ":")
+    for i in range(hasta + 1):
+        print(fibonacci(i), end=" ")
+    print()
 
-    if exponente < 0:
-        print("Por favor, ingresa un exponente entero no negativo.")
-    else:
-        resultado = potencia(base, exponente)
-        print(f"{base}^{exponente} = {resultado}")
+# Solicita al usuario una posición
+posicion = int(input("Introduce una posición para la serie de Fibonacci: "))
+
+# Muestra la serie
+mostrar_serie_fibonacci(posicion)
